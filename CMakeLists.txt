@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.20)
+project(AlgorithmsStudy C)
+set(CMAKE_C_STANDARD 99)
+add_executable(QuickSort Sort/QuickSort.c)
+add_executable(LinkList Queue-Stack-LinkedList/LinkList.c)
+add_executable(enum enum/Bomberman.c)
+add_executable(Matchstick enum/Matchstick.c)
