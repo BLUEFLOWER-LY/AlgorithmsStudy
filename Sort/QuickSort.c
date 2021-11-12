@@ -11,9 +11,12 @@
  * 完成一轮排序，把一串数以基准数为中心，分割成两个子串。
  * 然后又以左串的第一个数为基准数重复上述步骤。直到最后一个数。
  * 又以右串的第一个数为基准数重复上述步骤，直到最后一个数
+ * 346792
+ *
+ *
  * */
 #include <stdio.h>
-int a[10]={31,21,51,4,8,20,44,73,23,99};
+int a[6]={3,4,6,7,9,2};
 void quicksort(int left,int right){
     int i,j,t,pivot,k;
     if(left > right) return;
@@ -22,30 +25,35 @@ void quicksort(int left,int right){
     j = right;
     while(i!=j){
         //先从右边往左
-        while(a[j]>=pivot && i < j)
+        while(a[j] >= pivot && i < j)
             j--;
         //再从左往右
-        while(a[i]<=pivot && i < j)
+        while(a[i] <= pivot && i < j)
             i++;
         if(i<j){
             t=a[i];a[i]=a[j];a[j]=t;
         }
     }
+    printf("pivot = %d\n",a[i]);
+
     //将基数归位
     a[left] = a[i];
     a[i] = pivot;
-    for(k=0;k<10;k++){
+    for(k=0;k<6;k++){
         printf("%d ",a[k]);
     }
     printf("\n");
+    printf("left: \n");
     quicksort(left,i-1);
+    printf("right: \n");
     quicksort(i+1,right);
     return ;
 }
 int main(){
     int i;
-    quicksort(0,9);
-    for(i=0;i<10;i++){
+    printf("First: ");
+    quicksort(0,5);
+    for(i=0;i<6;i++){
         printf("%d ",a[i]);
     }
     getchar();
